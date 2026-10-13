@@ -1,32 +1,96 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevOps Lab 1 — My Portfolio</title>
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             color: #333;
+            padding: 20px;
         }
+
+        nav {
+            width: 100%;
+            max-width: 700px;
+            background: white;
+            padding: 16px;
+            margin-bottom: 24px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
         .container {
             background: white;
             border-radius: 16px;
-            padding: 48px;
+            padding: 40px;
+            width: 100%;
             max-width: 600px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             text-align: center;
         }
-        h1 { color: #667eea; margin-bottom: 8px; font-size: 32px; }
-        h2 { color: #764ba2; margin-bottom: 24px; font-size: 18px; font-weight: normal; }
-        .info { background: #f8f9fa; border-radius: 8px; padding: 20px; margin: 16px 0; text-align: left; }
-        .info p { margin: 8px 0; }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 16px;
+            font-size: 32px;
+        }
+
+        h2 {
+            color: #764ba2;
+            margin: 24px 0;
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        .profile-image {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 12px;
+            margin: 12px auto;
+            display: block;
+        }
+
+        .info {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .info p {
+            margin: 10px 0;
+        }
+
         .badge {
             display: inline-block;
             background: #667eea;
@@ -36,23 +100,65 @@
             font-size: 14px;
             margin: 4px;
         }
-        .footer { margin-top: 24px; font-size: 13px; color: #999; }
-        .status { color: #38a169; font-weight: bold; }
+
+        .footer {
+            margin-top: 24px;
+            font-size: 13px;
+            color: #999;
+            line-height: 1.8;
+        }
+
+        .status {
+            color: #38a169;
+            font-weight: bold;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 24px 18px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+        }
     </style>
 </head>
+
 <body>
+
+    <nav>
+        <a href="index.html">Trang chủ</a> |
+        <a href="about.html">Giới thiệu</a> |
+        <a href="contact.html">Liên hệ</a>
+    </nav>
+
     <div class="container">
         <h1>Xin chào, DevOps!</h1>
-<img src="anhvjp.jpg" alt="Ảnh đại diện cá nhân" width="300">
-<h2>Lab 1 — Website đã được cập nhật tự động!</h2>
+
+        <img
+            src="anhvjp.jpg"
+            alt="Ảnh đại diện cá nhân"
+            class="profile-image"
+        >
+
+        <h2>Lab 1 — Website đã được cập nhật tự động!</h2>
         <h2>Lab 1 — Trải nghiệm CI/CD Pipeline</h2>
-<img src="pngtree-lotus-flower-jpg-pink-lotus-flower-image_13023952.jpg" alt="Ảnh của tôi" width="300">
+
+               >
 
         <div class="info">
-            <p> <strong>Bài học:</strong> DevOps Lab 1 — Tổng quan</p>
-            <p> <strong>Deploy bởi:</strong> GitHub Actions CI/CD</p>
-            <p> <strong>Ngày deploy:</strong> <span id="date"></span></p>
-            <p> <strong>Pipeline status:</strong> <span class="status"> Automated</span></p>
+            <p><strong>Bài học:</strong> DevOps Lab 1 — Tổng quan</p>
+            <p><strong>Deploy bởi:</strong> GitHub Actions CI/CD</p>
+            <p><strong>Ngày deploy:</strong> <span id="date"></span></p>
+            <p><strong>Pipeline status:</strong>
+                <span class="status">Automated</span>
+            </p>
         </div>
 
         <div>
@@ -66,12 +172,14 @@
 
         <div class="footer">
             <p>Deployed automatically via GitHub Actions Pipeline</p>
-            <p> Push code → CI Build → Auto Deploy → Live! </p>
+            <p>Push code → CI Build → Auto Deploy → Live!</p>
         </div>
     </div>
 
     <script>
-        document.getElementById('date').textContent = new Date().toLocaleDateString('vi-VN');
+        document.getElementById('date').textContent =
+            new Date().toLocaleDateString('vi-VN');
     </script>
+
 </body>
 </html>
